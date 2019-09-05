@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "uploader/image.css" %}">
+    <meta charset="UTF-8">
+    <title>Image</title>
+</head>
+<body>
+
+<h2>Original Image</h2>
+<p>Re-sized to 300 x 200</p>
+
+<img src="{{  data.form.instance.image.url  }}", width="300" height="200">
+<p>{{  data.form.instance.image.url  }}</p>
+
+<form action="index">
+    <button type="submit", >Return to Uploader</button>
+</form>
+<form action="/">
+    <button type="submit", >Return to UploadDetect</button>
+</form>
+
+
+
+
+</body>
+</html>

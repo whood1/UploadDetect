@@ -1,0 +1,41 @@
+body {
+    align-content: center;
+    background-image: url("back.jpg");
+}
+
+p.droid {
+    background-color: rgba(0, 0, 0, 0.71);
+    color: rgb(166, 28, 15);
+    text-align: center;
+    font-family: "Agency FB";
+    text-shadow: 2px 2px #6DDCBD;
+    font-size: 75px;
+    border: 5px solid #ddffdd;
+
+}
+
+p.smaller {
+    text-align: center;
+    color: #a51a2c;
+    size: 30px;
+}
+
+button.myButton {
+    text-align: center;
+    background-color: #ddffdd;
+    color: #000;
+    border: rgb(166, 28, 15) 5px solid;
+    border-radius: 2px;
+    font-size: 40px;
+    padding: 5px 5px;
+}
+
+form.myForm {
+    text-align: center;
+    background-color: #ddffdd;
+    color: #000;
+    border: rgb(166, 28, 15) 5px solid;
+    border-radius: 2px;
+    font-size: 40px;
+    padding: 5px 5px;
+}

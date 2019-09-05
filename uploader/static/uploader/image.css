@@ -1,0 +1,15 @@
+body {
+    align-content: center;
+    background-image: url("back.jpg");
+}
+
+p.droid {
+    background-color: rgba(0, 0, 0, 0.71);
+    color: rgb(166, 28, 15);
+    text-align: center;
+    font-family: "Agency FB";
+    text-shadow: 2px 2px #6DDCBD;
+    font-size: 75px;
+    border: 5px solid #ddffdd;
+
+}

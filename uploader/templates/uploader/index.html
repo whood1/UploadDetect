@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "uploader/index.css" %}">
+
+    <meta charset="UTF-8">
+    <title>Uploader</title>
+</head>
+<body>
+
+<p class="droid">Uploader</p>
+<p class="smaller">Upload an image</p>
+
+
+
+
+
+
+<form class="myForm" action="upload_image" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Submit</button>
+
+</form>
+
+
+
+<form action="/">
+    <button class="myButton" type="submit">Return to Home</button>
+</form>
+
+
+
+
+
+</body>
+</html>
