@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from . import models, forms
+from django.http import HttpResponse
+from . import forms, models
 from django.views.decorators.csrf import csrf_exempt
 import os
-from django.core.files.images import ImageFile
 from django.conf import settings
+
 
 
 
@@ -20,21 +20,17 @@ def index(request):
     return index_html
 
 
-@csrf_exempt
+
 def upload_image(request):
 
-
-
+    #If no image, redirect
     if str(request.FILES) == '<MultiValueDict: {}>':
         return render(request, 'uploader/nofile.html')
-
-
 
     print("REquest.post:    ",request.POST)
     print("REquest post get text",request.POST.get('text'))
     print("Request Files:  ",request.FILES)
     print("Request Files[0]:   ", request.FILES.get)
-
     print("Post Length: ", len(request.POST))
     print("File length: ", len(request.FILES))
 
@@ -48,74 +44,41 @@ def upload_image(request):
         if form.is_valid():
             form.save()
 
+            print('FORM: ', form)
+            print('FORM INSTANCE IMAGE URL:  ', form.instance.image.url)
+
+            weird_path = form.instance.image.url
+            fixed_path = 'C:/' + weird_path.split('3A/')[1]
+
+            print(fixed_path)
+
+
+
+
+
             print('form', str(form))
             print('form instace:  ',str(form.instance))
             print('form instance image',  str(form.instance.image))
             print('url:  ', str(form.instance.image.url))
-
-            theimg = form._meta.model.image
             print('form fields  ', form.fields)
 
-            imagefield = form.fields['image']
-
-
-
-
-
-
-
             MEDIA_ROOT = getattr(settings, "MEDIA_ROOT")
-            MEDIA_ROOT = os.path.join(MEDIA_ROOT, 'img')
+            MEDIA_ROOT = os.path.join(MEDIA_ROOT, 'uploader\\')
             print("MEDIA_ROOT:  ", MEDIA_ROOT)
-
-
 
             inmemobj = request.FILES['image']
             img_name = str(inmemobj)
-            img_src = os.path.join(MEDIA_ROOT, img_name)
+            img_path = os.path.join(MEDIA_ROOT, img_name)
 
-            print("src: ",img_src)
+            print("img_path: ", img_path)
 
-            data = {"src": img_src, "form": form, 'MEDIA_ROOT': MEDIA_ROOT}
-
-            djangofileobj = inmemobj.open(mode='r')
-            print(djangofileobj)
-            print('1:   ',djangofileobj)
-            print(djangofileobj.content_type)
-            print(djangofileobj.size)
-
-            imgobj = djangofileobj.file
-            print(imgobj)
-
-            #print("2:   ",imgobj)
-
-
-
-
-
+            data = {'path': fixed_path, "form": form, 'MEDIA_ROOT': MEDIA_ROOT, 'name': img_name}
 
             return render(request, 'uploader/image.html', {'data': data})
 
         elif not form.is_valid():
             return HttpResponse('Form Invalid')
 
-
-
     else:
         return HttpResponse('Not POST')
 
-
-def test(request):
-    print(request.POST)
-
-    if request.method == "POST":
-        form = forms.TestForm(request.POST)
-
-        if form.is_valid():
-            return HttpResponse("VALID")
-        else:
-            print(form.errors)
-            return HttpResponse('FORM INVALID')
-
-    else:
-        return HttpResponse('NOT POST')

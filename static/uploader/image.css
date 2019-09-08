@@ -1,6 +1,12 @@
 body {
     align-content: center;
-    background-image: url("back.jpg");
+    background-color: #ddffdd;
+}
+
+h1 {
+    align-content: center;
+    color: #ddffdd;
+
 }
 
 p.droid {
@@ -11,5 +17,12 @@ p.droid {
     text-shadow: 2px 2px #6DDCBD;
     font-size: 75px;
     border: 5px solid #ddffdd;
+
+}
+
+p.text {
+    font-size: 20px;
+    color: #cc1111;
+    background: #46ccaf;
 
 }

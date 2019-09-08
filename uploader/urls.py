@@ -6,7 +6,5 @@ from django.conf import settings
 urlpatterns = [
     # path('whats typed after url', view, name='name')
     path('upload_image', views.upload_image, name='upload_image'),
-    path('test', views.test, name='test'),
     path('index', views.index, name='index')
-
 ]

@@ -27,4 +27,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('uploader/', include('uploader.urls')),
     path('admin/', admin.site.urls),
-] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    path('detector/', include('detector.urls'))
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

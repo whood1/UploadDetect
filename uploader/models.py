@@ -3,10 +3,8 @@ from django.conf import settings
 
 # Create your models here.
 
-class TestModel(models.Model):
-    text = models.CharField(max_length=10)
-
 
 class UserImage(models.Model):
-    image = models.ImageField(upload_to=getattr(settings, "MEDIA_ROOT"), null=True, blank=True,)
+    uploader_file_loacation = getattr(settings, "MEDIA_ROOT")+'/uploader/'
+    image = models.ImageField(upload_to=uploader_file_loacation, null=True, blank=True,)
 

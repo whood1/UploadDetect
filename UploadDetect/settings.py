@@ -27,14 +27,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-MEDIA_URL = '/images/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/images')
+#All media gets uploaded to app specific folders within media/
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'detector.apps.DetectorConfig',
     'uploader.apps.UploaderConfig',
     'django.contrib.admin',
     'django.contrib.auth',
