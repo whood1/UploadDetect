@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from . import models, forms
+from . import models, forms, detectFace
 import cv2
 from django.core.files.uploadedfile import UploadedFile, InMemoryUploadedFile
 from django.core.files.images import ImageFile
@@ -28,17 +28,30 @@ def detect(request):
     orig = cv2.imread(orig_src)
     print('image', orig.shape)
 
-    # swapped_color = orig.copy()
+    # swapped_color_img = orig.copy()
 
-    swapped_color = cv2.cvtColor(orig, cv2.COLOR_RGB2BGR)
+    swapped_color_img = cv2.cvtColor(orig, cv2.COLOR_RGB2BGR)
+
+
+
+    modified_image = detectFace.detect_face_in_image(orig)
+
+
+
     mod_name = 'mod_' + str(orig_name)
 
-    location = getattr(settings, "MEDIA_ROOT")[0:-1] + '\\modified\\' + mod_name
-    location2 = location.replace('/', '\\')
+    save_location = getattr(settings, "MEDIA_ROOT")[0:-1] + '\\modified\\' + mod_name
+    print('SAVE LOCATION:   ', save_location)
+
+    location = '/media/' + getattr(settings, "MEDIA_ROOT")[0:-1] + '\\modified\\' + mod_name
+    
+    location = location.replace('\\', '/')
+
     # location = '/C:/Users/billy/Desktop/Projects/Python/Django/UploadDetect/media/modifed/test.png'
 
-    cv2.imwrite(location, swapped_color)
+    cv2.imwrite(save_location, swapped_color_img)
+    #cv2.imwrite(save_location, orig)
 
-    data = {'name': orig_name, 'url': orig_url, 'swapped': swapped_color, "location": location2}
+    data = {'name': orig_name, 'url': orig_url, 'swapped': swapped_color_img, "location": location}
 
     return render(request, 'detector/detect.html', {'data': data})
