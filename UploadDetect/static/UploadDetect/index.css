@@ -2,10 +2,26 @@ body {
     background-image: url("back.jpg");
 }
 
-h2 {
-    color: rgb(72, 9, 9);
+.myinfo {
+    background-color: rgba(0, 0, 0, 0.71);
+    color: rgb(197, 185, 48);
     text-align: center;
-    font-family: "Droid Sans";
+    text-shadow: 1px 1px #6DDCBD;
+    font-size: 25px;
+    border: 5px solid #ddffdd;
+    font-family: "Agency FB";
+
+}
+
+
+.bodytext {
+    background-color: rgba(0, 0, 0, 0.71);
+    color: rgb(35, 90, 166);
+    text-align: center;
+    text-shadow: 2px 1px #6DDCBD;
+    font-size: 25px;
+    border: 5px solid #ddffdd;
+    font-family: "Agency FB";
 
 }
 
@@ -20,6 +36,10 @@ p.droid {
 
 }
 
+div.buttonwrapper {
+
+}
+
 button.myButton {
     background-color: #ddffdd;
     color: #000;
@@ -28,4 +48,7 @@ button.myButton {
     font-size: 40px;
     display: block;
     padding: 5px 5px;
+    margin: 0 auto;
+
+
 }

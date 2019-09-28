@@ -2,19 +2,40 @@
 <html lang="en">
 <head>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static "UploadDetect/index.css"%}">
+    <link rel="stylesheet" type="text/css" href="{% static "/UploadDetect/index.css" %}">
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
 <body>
+
     <p class="droid">UploadDetect</p>
 
 
-        <form action="uploader/index">
+    <div class="bodytext">
+        <p>Simple Object detection</p>
+        <p>Website built from scratch with django</p>
+        <p>Object detection using tensorflow, go to detector for more information</p>
+    </div>
+
+    <div class="myinfo">
+        <p>Billy Hood 2019, Johns Hopkins University</p>
+        <p> <a href="https://www.wlhood.com">wlhood.com</a> </p>
+    </div>
+
+
+
+
+
+
+
+
+    <form action="uploader/index">
+        <div class="buttonwrapper">
             <button class="myButton" type="submit">Go To Uploader</button>
-        </form>
-        <button class="toUploader" type="submit">Go To Uploader</button>
-        <button class="toUploader" type="submit">Go To Uploader</button>
+        </div>
+
+    </form>
+
 </body>
 
 

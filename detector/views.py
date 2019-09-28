@@ -1,9 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from . import models, forms, detectFace
+from . import detectFace
 import cv2
-from django.core.files.uploadedfile import UploadedFile, InMemoryUploadedFile
-from django.core.files.images import ImageFile
 from django.conf import settings
 
 
@@ -11,6 +8,7 @@ from django.conf import settings
 
 def index(request):
     return render(request, 'detector/index.html')
+
 
 
 def detect(request):
@@ -32,11 +30,10 @@ def detect(request):
 
     swapped_color_img = cv2.cvtColor(orig, cv2.COLOR_RGB2BGR)
 
+    modified_image, predictions = detectFace.detect_face_in_image(orig)
 
-
-    modified_image = detectFace.detect_face_in_image(orig)
-
-
+    first_pred_name = predictions[0][0][1]
+    first_pred_prob = predictions[0][0][2]
 
     mod_name = 'mod_' + str(orig_name)
 
@@ -44,14 +41,16 @@ def detect(request):
     print('SAVE LOCATION:   ', save_location)
 
     location = '/media/' + getattr(settings, "MEDIA_ROOT")[0:-1] + '\\modified\\' + mod_name
-    
+
     location = location.replace('\\', '/')
 
     # location = '/C:/Users/billy/Desktop/Projects/Python/Django/UploadDetect/media/modifed/test.png'
 
     cv2.imwrite(save_location, swapped_color_img)
-    #cv2.imwrite(save_location, orig)
+    # cv2.imwrite(save_location, orig)
 
-    data = {'name': orig_name, 'url': orig_url, 'swapped': swapped_color_img, "location": location}
+    data = {'name': orig_name, 'url': orig_url, 'swapped': swapped_color_img, "location": location,
+            "one": first_pred_name, "one_prob": first_pred_prob}
 
     return render(request, 'detector/detect.html', {'data': data})
+    

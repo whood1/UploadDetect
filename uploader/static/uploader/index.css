@@ -21,21 +21,34 @@ p.smaller {
 }
 
 button.myButton {
+    background-color: rgba(0, 0, 0, 0.79);
+    color: #e2e2e2;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.84);
+    border: rgb(166, 28, 15) 5px solid;
+    border-radius: 2px;
+    font-size: 40px;
+    padding: 2px 2px;
+    margin: 0 auto;
+}
+
+form.myForm {
     text-align: center;
-    background-color: #ddffdd;
-    color: #000;
+    background-color: rgba(0, 0, 0, 0.78);
+    color: #928d93;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.83);
     border: rgb(166, 28, 15) 5px solid;
     border-radius: 2px;
     font-size: 40px;
     padding: 5px 5px;
 }
 
-form.myForm {
-    text-align: center;
-    background-color: #ddffdd;
-    color: #000;
+button.returnbutton {
+    background-color: rgba(0, 0, 0, 0.79);
+    color: #e2e2e2;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.84);
     border: rgb(166, 28, 15) 5px solid;
     border-radius: 2px;
     font-size: 40px;
-    padding: 5px 5px;
+    padding: 2px 2px;
+    text-align:center;
 }

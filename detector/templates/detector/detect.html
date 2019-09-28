@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
+{% load static %}
+
 <head>
+    <link rel="stylesheet" type="text/css" href="{% static "/uploader/image.css" %}" >
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -19,6 +23,9 @@
     <p>{{  data.location  }}</p>
     <img src="{{  data.location  }}" width="300" height="200">
 
+
+    <p>{{data.one}}</p>
+    <p>{{data.one_prob}}</p>
 
 </body>
 </html>

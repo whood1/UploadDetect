@@ -20,14 +20,14 @@
 <form class="myForm" action="upload_image" enctype="multipart/form-data" method="post">
     {% csrf_token %}
     {{form.as_p}}
-    <button type="submit">Submit</button>
+    <button class="myButton" type="submit">Submit</button>
 
 </form>
 
 
 
 <form action="/">
-    <button class="myButton" type="submit">Return to Home</button>
+    <button class="returnbutton" type="submit">Return to Home</button>
 </form>
 
 
