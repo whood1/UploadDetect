@@ -2,39 +2,68 @@
 <html lang="en">
 <head>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static "/UploadDetect/index.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "/UploadDetect/bulma.css" %}">
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>UploadDetect</title>
 </head>
 <body>
 
-    <p class="droid">UploadDetect</p>
+<!-- Header -->
+        <section style="padding-bottom: 20px">
+            <div class="level-item is-centered">
+                <p></p>
+
+            </div>
+
+            <div class="level-item is-centered">
+                <p class="title has-text-white">UploadDetect</p>
+            </div>
+
+            <div class="level-item is-centered">
+                <a href="https://wlhood.com">About Me</a>
+            </div>
+
+        </section>
+
+<!-- Body -->
+        <section>
+
+            <div class="columns">
+                <div class="column is-offset-one-fifth is-three-fifths">
+                    <div class="notification is-info is-centered">
+                        <p style="text-align: center">Deep Learning based object detection</p>
+                        <p style="text-align: center">Website built with Django</p>
+                        <p style="text-align: center">Object detection using Tensorflow, go to detector for more information</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column is-offset-two-fifths">
+                    <form action="uploader/index">
+                        <div>
+                            <button class="notification"  type="submit">Go To Uploader</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
 
-    <div class="bodytext">
-        <p>Simple Object detection</p>
-        <p>Website built from scratch with django</p>
-        <p>Object detection using tensorflow, go to detector for more information</p>
-    </div>
+        </section>
 
-    <div class="myinfo">
-        <p>Billy Hood 2019, Johns Hopkins University</p>
-        <p> <a href="https://www.wlhood.com">wlhood.com</a> </p>
-    </div>
+<!-- Footer -->
+        <section>
+            <footer class="footer">
+                <div class="notification is-info is-centered">
+                    <p style="text-align: center">William Hood, The Johns Hopkins University, 2019. All Rights Reserved.</p>
+                </div>
 
-
-
+            </footer>
+        </section>
 
 
 
 
-
-    <form action="uploader/index">
-        <div class="buttonwrapper">
-            <button class="myButton" type="submit">Go To Uploader</button>
-        </div>
-
-    </form>
 
 </body>
 

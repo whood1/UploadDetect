@@ -1,9 +1,20 @@
+:root {
+
+    --c-darkblue: rgb(20, 16, 61);
+    --c-lightpurple: rgb(121, 114, 200);
+    --c-lightblue: rgb(61, 49, 189);
+    --c-grey: rgb(69, 68, 82);
+    --c-mediumblue: rgb(48, 38, 148);
+
+}
+
 body {
-    background-image: url("back.jpg");
+    /* background-image: url("back.jpg"); */
+    background-color: var(--c-lightpurple);
 }
 
 .myinfo {
-    background-color: rgba(0, 0, 0, 0.71);
+    background-color: var(--c-lightblue);
     color: rgb(197, 185, 48);
     text-align: center;
     text-shadow: 1px 1px #6DDCBD;
@@ -15,7 +26,7 @@ body {
 
 
 .bodytext {
-    background-color: rgba(0, 0, 0, 0.71);
+    background-color: var(--c-mediumblue);
     color: rgb(35, 90, 166);
     text-align: center;
     text-shadow: 2px 1px #6DDCBD;

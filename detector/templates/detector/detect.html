@@ -1,5 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "/detector/bulma.css" %}">
+    <meta charset="UTF-8">
+    <title>Detector</title>
+</head>
+<body>
+
+<!-- Header -->
+        <section style="padding-bottom: 20px">
+            <div class="level-item is-centered">
+
+            </div>
+
+            <div class="level-item is-centered">
+                <p class="title has-text-white">Detector</p>
+            </div>
+
+        </section>
+
+<!-- Body -->
+        <section>
+
+            <div class="columns">
+                <div class="column is-offset-one-fifth is-three-fifths">
+                    <div class="notification is-info is-centered">
+                        <h3>Original</h3>
+
+                        <!--
+                        <p>{{  data.url  }}</p>
+                        -->
+
+
+                        <img class="center" src="{{  data.url  }}" width="300" height="200">
+
+
+                    </div >
+
+                    <div class="notification is-info is-centered">
+
+                        <h3>Detected</h3>
+
+                        <!--
+                        <p>{{  data.location  }}</p>
+                        -->
+
+                        <img class="center" src="{{  data.location  }}" width="300" height="200">
+
+
+                    </div>
+
+                    <div style="text-align: center" class="notification is-info is-centered">
+
+                        <p>{{data.one}}</p>
+                        <p>{{data.one_prob}}</p>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column column is-offset-one-fifth is-three-fifths">
+                    <div class="buttons">
+
+                        <form action="/">
+                            <button style="margin-right: 20px" class="button" type="submit", >Return to Home</button>
+                        </form>
+
+                        <form action="/uploader/index">
+                           <div>
+                               <button style="margin-right: 20px" class="button" type="submit">Go To Uploader</button>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </section>
+
+<!-- Footer -->
+        <section>
+            <footer class="footer">
+                <div class="notification is-info is-centered">
+                    <p style="text-align: center">William Hood, The Johns Hopkins University, 2019. All Rights Reserved.</p>
+                </div>
+
+            </footer>
+        </section>
+
+
+
+
+
+</body>
+
+
+
+</html>
+
+<!--  OLD HTML
+
+<!DOCTYPE html>
+<html lang="en">
 
 {% load static %}
 
@@ -29,3 +136,5 @@
 
 </body>
 </html>
+
+-->

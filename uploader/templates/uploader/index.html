@@ -2,6 +2,88 @@
 <html lang="en">
 <head>
     {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "/UploadDetect/bulma.css" %}">
+    <meta charset="UTF-8">
+    <title>UploadDetect</title>
+</head>
+<body>
+
+<!-- Header -->
+        <section style="padding-bottom: 20px">
+            <div class="level-item is-centered">
+                <p></p>
+
+            </div>
+
+            <div class="level-item is-centered">
+                <p class="title has-text-white">Uploader</p>
+            </div>
+
+            <div class="level-item is-centered">
+                <p class="subtitle">Upload an image.</p>
+            </div>
+
+        </section>
+
+<!-- Body -->
+        <section>
+            <div class="columns">
+                <div class="column is-offset-one-fifth is-three-fifths">
+                    <div class="notification is-info is-centered">
+                        <div style="text-align: center">
+                            <h4>Please chose a file and press submit.</h4>
+                            <form  class="button has-background-info" action="upload_image" enctype="multipart/form-data" method="post">
+                                {% csrf_token %}
+                                {{form.as_p}}
+                                <br>
+                                <button class="button" type="submit">Submit</button>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column is-offset-one-fifth is-three-fifths">
+                    <div class="notification is-info is-centered">
+                        <form action="/">
+                            <div style="text-align: center">
+                                <button class="button" type="submit">
+                                    <p>Return to Home</p>
+                                </button>
+
+                            </div>
+
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+<!-- Footer -->
+        <section>
+            <footer class="footer">
+                <div class="notification is-info is-centered">
+                    <p style="text-align: center">William Hood, The Johns Hopkins University, 2019. All Rights Reserved.</p>
+                </div>
+
+            </footer>
+        </section>
+
+</body>
+</html>
+
+
+
+<!-- OLD HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static "uploader/index.css" %}">
 
     <meta charset="UTF-8">
@@ -26,9 +108,7 @@
 
 
 
-<form action="/">
-    <button class="returnbutton" type="submit">Return to Home</button>
-</form>
+
 
 
 
@@ -36,3 +116,4 @@
 
 </body>
 </html>
+-->
